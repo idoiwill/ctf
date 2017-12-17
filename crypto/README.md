@@ -1,2 +1,7 @@
-1.ECB
-2.Padding oracle
+# ECB
+ECB的特点是同样Block的明文，同样的密文
+![](http://image.3001.net/images/20150115/14212875849501.png)
+![](http://image.3001.net/images/20150115/14212875856777.png)
+
+再深入就是：同一个字节在同一个位置对应的密文是一样的。
+例题：
