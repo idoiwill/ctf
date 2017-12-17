@@ -18,13 +18,28 @@ s<br>
 >>> 
 ```
 ## Step 2
-计算s的密文，得到：
+计算s的密文，得到:B9Hd7dhzY/4=<br>
 计算evil的密文<br>
-1. 先计算evils的密文为k0RmwH8kzkI=<br>
-2. 前面4个字符的密文是
+
+## Step 3
+计算evil min<br>
+1. min是可以直接算出来的，比如提交'jack min'，得到密文vgfZODJCSsvoIAOJX7VARQ==<br>
 ```python
->>> cp = 'k0RmwH8kzkI='
->>> cp.decode('base64')
-'\x93Df\xc0\x7f$\xceB'
->>> 
+[+] Downloading 'http://dictionary-attack.grandprix.whitehatvn.com:4321?plaintext=jack min&&ciphertext=': 1.88KB
+Cipher text is  vgfZODJCSsvoIAOJX7VARQ==
 ```
+其中4到8字节就是' min'的密文<br>
+2. 再计算evil的值，可以用evils代替：<br>
+```python
+[+] Downloading 'http://dictionary-attack.grandprix.whitehatvn.com:4321?plaintext=evils&&ciphertext=': 1.87KB
+Cipher text is  zvyKu3M8TaY=
+```
+其中0到4字节是'evil'的密文<br>
+合并下即是'evil min'的密文<br>
+
+## Step 4
+计算'ds captu'的密文<br>
+1. 计算'd'的密文<br>
+2. 计算'is cap'的密文<br>
+3. 计算'      t '的密文<br>
+4. 计算'       u'的密文<br>
