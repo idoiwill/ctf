@@ -1,6 +1,9 @@
 # CTF
 ## PWN
 ### 0x01栈溢出
+1.可见字符的shellcode：<br>
+XXj0TYX45Pk13VX40473At1At1qu1qv1qwHcyt14yH34yhj5XVX1FK1FSH3FOPTj0X40PP4u4NZ4jWSEW18EF0V<br>
+https://www.exploit-db.com/exploits/35205/<br>
 ### 0x02堆溢出
 #### 参考
 1. https://github.com/shellphish/how2heap
