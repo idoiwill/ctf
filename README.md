@@ -22,3 +22,17 @@ ECB的特点是同样的blcok，同样的密文
 ![](http://image.3001.net/images/20150115/14212875849501.png)
 ### Tools
 1. https://github.com/lovebed/rsatools
+
+## 工具技巧
+### pwntools
+1. 调用gdb
+p = process('./xxxx')
+if debug:
+  gdb.attach(p, '''
+set disassembly-flavor intel
+set height 0
+display/10i $pc
+b *0x0000000000400712
+display/ub ($rsp + 0x107)
+''')
+
