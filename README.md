@@ -33,6 +33,7 @@ ECB的特点是同样的blcok，同样的密文
 ## 三、工具技巧
 ### 0x01 pwntools
 1. 调用gdb
+```
 p = process('./xxxx')
 if debug:
   gdb.attach(p, '''
@@ -42,4 +43,4 @@ display/10i $pc
 b *0x0000000000400712
 display/ub ($rsp + 0x107)
 ''')
-
+```
