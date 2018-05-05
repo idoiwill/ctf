@@ -44,3 +44,6 @@ b *0x0000000000400712
 display/ub ($rsp + 0x107)
 ''')
 ```
+## 四、Other
+### remove alarm
+sed –i “s/alarm/isnan/g” yourbin
