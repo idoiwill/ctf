@@ -11,8 +11,11 @@ Blaze ctf 2018中的shellcodeme，shellcodeme这个ctf题目，利用7种类型�
 https://github.com/ByteBandits/writeups/tree/master/blaze-ctf-2018/pwn/shellcodeme/sudhackar <br>
 https://fortenf.org/e/ctfs/pwn/2018/04/23/blazectf-2018-shellcodeme.html<br>
 
-3.需要Brute force canary（爆破栈cookie)
+3.需要Brute force canary（爆破栈cookie)<br>
 参考：	http://www.pwntester.com/tag/exploit43/<br>
+
+4.scanf<br>
+scanf("%i",&a)，当输入是非数字的时候，不会写入到a。需要检查scanf的返回值。这种一般能利用绕过canary的检查，如pwnable.t的doublesort。<br>
 
 ### 0x02 堆溢出
 
