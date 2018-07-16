@@ -31,8 +31,11 @@ scanf("%i",&a)，当输入是非数字的时候，不会写入到a。需要检�
 2. 32个字符的，一般是MD5
 3. 根据输入返回一个固定值，但是又不是其MD5，则有可能加了Salt，运算是xor，例子[MeePwnCTF2018-Ezchallz](https://blog.naver.com/mouse0333/221319793689)
 ### RSA
-参考：[CTF中常见的RSA相关问题总结](https://github.com/findneo/RSA-ATTACK)
-####基础
+参考：
+1. [CTF中常见的RSA相关问题总结](https://github.com/findneo/RSA-ATTACK)
+2. [CTF中RSA套路](https://err0rzz.github.io/2017/11/14/CTF%E4%B8%ADRSA%E5%A5%97%E8%B7%AF/)
+3. gmpy2安装：https://www.cnblogs.com/pcat/p/5746821.html
+#### 基础
 即在知道e，p，q的情况下，可以解出d：
 ```
 def egcd(a, b):
@@ -52,8 +55,8 @@ modinv函数即为求模拟的函数，在知道e，p，q的情况下，可以�
 ```
 d=modinv(e,(p-1)*(q-1))
 ```
-####直接分解n
-1)分解工具：
+#### 直接分解n
+1)分解工具
 factordb.com
 Yafu
 2) 利用公约数
@@ -62,6 +65,7 @@ Yafu
 在p，q的取值差异过大，或者p，q的取值过于相近的时候，Format方法与Pollard rho方法都可以很快将n分解成功。
 解题时都拿去跑跑
 ####低加密指数攻击
+1) e=3时的小明文攻击
 当e=3时，如果明文过小，导致明文的三次方仍然小于n，那么通过直接对密文三次开方，即可得到明文。
 ```
 i=0
@@ -71,6 +75,10 @@ i=0
      break
    i=i+1
  ```
+2)低加密指数广播攻击
+如果选取的加密指数较低，并且使用了相同的加密指数给一个接受者的群发送相同的信息，那么可以进行广播攻击得到明文。
+解题原理是中国剩余定理。
+
 ### Tools
 1. https://github.com/lovebed/rsatools
 ### 实用技巧
