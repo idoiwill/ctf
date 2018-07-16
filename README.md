@@ -26,12 +26,10 @@ scanf("%i",&a)，当输入是非数字的时候，不会写入到a。需要检�
 1. 题目用的是socket连接，直接调用system是无法返回shell的，可以用dup2，将0,1,2的文件描述符重定向到socket（4）<br>
 
 ## 二、Crypto
-### 0x00 要点
+### 要点
 1. 记住异或(^)，基础题的考点
-### 0x01 Padding Oracle
-### 0x02 ECB
-ECB的特点是同样的blcok，同样的密文
-![](http://image.3001.net/images/20150115/14212875849501.png)
+2. 32个字符的，一般是MD5
+3. 根据输入返回一个固定值，但是又不是其MD5，则有可能加了Salt，运算是xor，例子[MeePwnCTF2018-Ezchallz](https://blog.naver.com/mouse0333/221319793689)
 ### Tools
 1. https://github.com/lovebed/rsatools
 ### 实用技巧
