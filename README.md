@@ -38,7 +38,8 @@ ECB的特点是同样的blcok，同样的密文
 1. 十六进制字符串异或
 ```
 >>> from pwn import *
->>> xor("b74c7f3802cff04ecdcf64bbe579fc73".decode('hex'), "06e71f4c7b5be70f1687d55f9821d06e".decode('hex')).encode('hex') 
+>>> xor("b74c7f3802cff04ecdcf64bbe579fc73".decode('hex'),
+"06e71f4c7b5be70f1687d55f9821d06e".decode('hex')).encode('hex') 
 'b1ab607479941741db48b1e47d582c1d'
 ```
 
