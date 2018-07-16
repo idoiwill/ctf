@@ -26,12 +26,21 @@ scanf("%i",&a)，当输入是非数字的时候，不会写入到a。需要检�
 1. 题目用的是socket连接，直接调用system是无法返回shell的，可以用dup2，将0,1,2的文件描述符重定向到socket（4）<br>
 
 ## 二、Crypto
+### 0x00 要点
+1. 记住异或(^)，基础题的考点
 ### 0x01 Padding Oracle
 ### 0x02 ECB
 ECB的特点是同样的blcok，同样的密文
 ![](http://image.3001.net/images/20150115/14212875849501.png)
 ### Tools
 1. https://github.com/lovebed/rsatools
+### 实用技巧
+1. 十六进制字符串异或
+```
+>>> from pwn import *
+>>> xor("b74c7f3802cff04ecdcf64bbe579fc73".decode('hex'), "06e71f4c7b5be70f1687d55f9821d06e".decode('hex')).encode('hex') 
+'b1ab607479941741db48b1e47d582c1d'
+```
 
 ## 三、工具技巧
 ### 0x01 pwntools
