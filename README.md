@@ -61,4 +61,12 @@ p += p64(0x00000000004017a7) # pop rsi ; ret
 32位系统类似，用p32
 ## 四、Other
 ### remove alarm
-sed –i “s/alarm/isnan/g” yourbin
+很多题目都有alarm函数防止Dos攻击，超过指定的时候后程序就会退出，不便于debug，通常有几种干掉alarm的方法： - vim: %s/alarm/isnan/g - sed-i s/alarm/isnan/g [elf name] - LD_PRELOAD
+```
+#include<stdio.h>
+unsigned int alarm(unsigned int seconds){
+    printf("%d",seconds);
+}
+```
+编译：gcc -shared [-fPIE/-fPIC] [-m32] hook.c -o hook.so
+运行：LD_PRELOAD=./hook.so ./pwnme
