@@ -2,8 +2,8 @@
 | 序号 | 类别             | 题目                                                         | 难度 | 要点                                                         |
 | ---- | ---------------- | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
 | 1    | 基础运算         | Plaid CTF 2019 - R u SAd?<br> [Writeup](http://duksctf.github.io/2019/04/13/PlaidCTF2019-rusad.html) | 低   | 1. 函数egcd(x,y)返回值a,b,c，表示等式a*x+b*y = c，利用该等式和已知变量进行替换变形，得到p/q；<br> 2.由于p和q都是素数，所以egcd的第三个返回值为1 |
-| 2    | Java中random预测 | 强网杯，[Writeup](https://paper.tuisec.win/detail/d3216db087bae24) | 低   | Java的random函数实际是LCG，可以被预测。 参考Writeup里面的源码分析。 nextseed = (oldseed * multiplier + addend) & mask。这些都是已知的，但是有个坑是移位后有强制转换。 |
-|      |                  |                                                              |      |                                                              |
+| 2    | Java中random预测 | 强网杯- randomstudy<br>[Writeup](https://paper.tuisec.win/detail/d3216db087bae24) | 低   | Java的random函数实际是LCG，可以被预测。 参考Writeup里面的源码分析。 nextseed = (oldseed * multiplier + addend) & mask。这些都是已知的，但是有个坑是移位后有强制转换。 |
+| 3    | LLL attack       | 强网杯copperstudy<br>[Writeup](https://zhuanlan.zhihu.com/p/67180091) | 高   | CopperSmith相关知识：<br>1. 已知n,e,c和m的大部分比特位，且e=3<br>2. |
 |      |                  |                                                              |      |                                                              |
 |      |                  |                                                              |      |                                                              |
 |      |                  |                                                              |      |                                                              |
