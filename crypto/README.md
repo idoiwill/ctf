@@ -92,3 +92,44 @@ print "q2: "+str(n2/gcd(n1,n2))
 8473244269440509775740824389306887881298058795843414842956132145490099061637
 (121129302483457450895608650552243558445281823578945131606244911986357957846615219093944273522931121330892846906255621900353518764908058240190274164398929651054604172934407880109536968954842096749981787715589575379360708665738113909945093611320464753611894436549704087447277644447804224219449061523879184664224, 3433993182244742933171077355577942754401256613289749464940723455338441506020894108372280289090874388382515726802296885002734697572085019743996840692246280, 7185352839224592554378149243106036192572722976910322898221597172526458478345990407760099409610815351585677931127109742103079498785227488769888006188378352)
 
+
+
+
+from Crypto.Util.number import getStrongPrime, bytes_to_long, long_to_bytes
+from hashlib import sha256
+
+flag = open("flag.txt","r").read().strip()
+assert flag[:5] == "flag{"
+assert flag[-1] == '}'
+flag = flag[5:-1]
+p = getStrongPrime(512)
+q = getStrongPrime(512)
+R = Zmod(p*q)
+Mx = R.random_element()
+My = R.random_element()
+b = My^2-Mx^3
+E = EllipticCurve(R, [0,b])
+Ep = EllipticCurve(GF(p), [0,b])
+Eq = EllipticCurve(GF(q), [0,b])
+Ecard = Ep.cardinality()*Eq.cardinality()
+s = 65537
+iqmp = inverse_mod(q,p)
+ipmq = inverse_mod(p,q)
+print(s,b)
+print(s*E(Mx,My))
+print(bytes_to_long(sha256(long_to_bytes(Mx)).digest())^^bytes_to_long(flag))
+print(Ecard,iqmp,ipmq)
+
+N = p*q
+
+Cx,Cy,_ = s*EE(Mx,My)  #题目已知
+EE = EllipticCurve(Zmod(N), [0,Cy^2-Cx^3]) #假设知道N
+dd = inverse_mod(s,Ecard) #Ecard题目已知
+M = dd * EE(Cx,Cy)
+print(long_to_bytes((bytes_to_long(sha256(long_to_bytes(M[0])).digest())^^secret))) #可以还原
+
+
+
+    
+
+
